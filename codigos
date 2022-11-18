@@ -1,0 +1,36 @@
+#Organização 
+
+ ALTER TABLE dbo.ORDEM_SERVICO
+  ADD CONSTRAINT pk_OrdemServico PRIMARY KEY(id_os);
+
+ ALTER TABLE dbo.LOCALIDADES 
+  ADD CONSTRAINT pk_Localidades PRIMARY KEY (Id_cidade);  
+ 
+ ALTER TABLE dbo.MECANICOS
+  ADD CONSTRAINT pk_Mecanicos PRIMARY KEY (Id_mecanico);
+
+##
+
+      REFERENCES dbo.Ordem_servico(id_os); 
+ALTER TABLE dbo.ORDEM_SERVICO
+  ADD CONSTRAINT fk_Mecanicos FOREIGN KEY(id_mecanico)
+      REFERENCES dbo.Mecanicos(id_mecanico); 
+
+ALTER TABLE dbo.ORDEM_SERVICO
+  ADD CONSTRAINT fk_Localidade FOREIGN KEY(id_cidade)
+      REFERENCES dbo.Localidades(id_cidade);
+
+ALTER TABLE dbo.ORDEM_SERVICO
+  DROP CONSTRAINT fk_Localidade;
+  
+  ##
+  
+    --select 
+
+  select * from FORMAS_PAGAMENTO;
+
+  SELECT *
+  FROM MECANICOS; 
+
+  SELECT * 
+  FROM dbo.ORDEM_SERVICO;
